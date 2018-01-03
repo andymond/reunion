@@ -31,6 +31,20 @@ class Reunion
     end
   end
 
+  def money_spent
+    activities.map do |activity|
+      activity.participants.values
+    end
+  end
+
+  def money_owed
+    money_spent.map.with_index do |per_activity, index|
+      per_activity.map do |per_person|
+        split_costs[index] - per_person
+      end
+    end
+  end
+
   def total_cost_breakdown
 
   end
