@@ -22,7 +22,7 @@ class Activity
   end
 
   def amount_owed(name)
-    owed = split_cost - participants[name]
+    split_cost - participants[name]
   end
 
 end
