@@ -101,6 +101,24 @@ class ReunionTest < Minitest::Test
     assert_equal [[0, 0, 0], [1, 0, -1]], reunion.money_owed
   end
 
+  def test_total_money_owed_per_person_returns_array_of_money_owed_pp
+    reunion = Reunion.new("Tallahassee")
+
+    reunion.add_activity("hiking")
+    first_activity = reunion.activities[0]
+    first_activity.add_participant("Andy", 1)
+    first_activity.add_participant("Michael", 1)
+    first_activity.add_participant("Dwight", 1)
+
+    reunion.add_activity("boatin'")
+    second_activity = reunion.activities[1]
+    second_activity.add_participant("Andy", 2)
+    second_activity.add_participant("Michael", 3)
+    second_activity.add_participant("Dwight", 4)
+
+    assert_equal [1, 0, -1], reunion.money_owed_per_person
+  end
+
   def test_total_cost_breakdown_of_union_can_be_calculated
     skip
     reunion = Reunion.new("Tallahassee")

@@ -45,6 +45,10 @@ class Reunion
     end
   end
 
+  def money_owed_per_person
+
+  end
+
   def total_cost_breakdown
 
   end
