@@ -56,8 +56,8 @@ class ActivityTest < Minitest::Test
     activity.add_participant("Michael", 3)
     activity.add_participant("Dwight", 4)
 
-    assert_equal "Pam owes 1.5 dollars", activity.amount_owed("Pam")
-    assert_equal "Jim owes 0.5 dollars", activity.amount_owed("Jim")
+    assert_equal 1.5, activity.amount_owed("Pam")
+    assert_equal 0.5, activity.amount_owed("Jim")
   end
 
   def test_amount_owed_returns_amount_owed_to_participant
@@ -68,8 +68,8 @@ class ActivityTest < Minitest::Test
     activity.add_participant("Michael", 3)
     activity.add_participant("Dwight", 4)
 
-    assert_equal "Michael is owed 0.5 dollars", activity.amount_owed("Michael")
-    assert_equal "Dwight is owed 1.5 dollars", activity.amount_owed("Dwight")
+    assert_equal(-0.5, activity.amount_owed("Michael"))
+    assert_equal(-1.5, activity.amount_owed("Dwight"))
   end
 
   def test_amount_owed_returns_squared_up_if_nothing_owed
@@ -80,8 +80,8 @@ class ActivityTest < Minitest::Test
     activity.add_participant("Michael", 1)
     activity.add_participant("Dwight", 1)
 
-    assert_equal "Pam is all squared-up", activity.amount_owed("Pam")
-    assert_equal "Dwight is all squared-up", activity.amount_owed("Dwight")
+    assert_equal 0, activity.amount_owed("Pam")
+    assert_equal 0, activity.amount_owed("Dwight")
   end
 
 end

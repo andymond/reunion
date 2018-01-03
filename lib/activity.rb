@@ -23,13 +23,6 @@ class Activity
 
   def amount_owed(name)
     owed = split_cost - participants[name]
-      if owed > 0
-        "#{name} owes #{owed} dollars"
-      elsif owed < 0
-        "#{name} is owed #{owed.abs} dollars"
-      else
-        "#{name} is all squared-up"
-      end
   end
 
 end
